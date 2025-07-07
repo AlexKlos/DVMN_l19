@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <style>
     .container {
@@ -23,6 +24,8 @@
       flex-direction: row;
       justify-content: flex-start;
       background-color: black;
+      color: white;
+      font-family: Roboto;
     }
     .player-button {
       border-style: none;
@@ -33,6 +36,13 @@
       height: 30px;
       width: 30px;
       margin: 8px 4px 7px 3px;
+    }
+    .viewing-container {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+      align-items: center;
+      margin: 1px 0px 0px 1px;
     }
   </style>
 </head>
@@ -59,7 +69,13 @@
           <i class="fa fa-volume-up" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="video-container"></div>
+
+      <div class="viewing-container">
+        <span class="js-current-time"></span>
+        <div class="video-container"></div>
+        <span class="js-duration"></span>
+      </div>
+
       <button class="js-fullscreen-button player-button">
         <i class="fa fa-expand" aria-hidden="true"></i>
       </button>
