@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
   <style>
     .container {
@@ -27,8 +28,13 @@
       color: white;
       font-family: Roboto;
     }
-    .player-button {
-      border-style: none;
+    .player-button,
+    .player-button:focus,
+    .player-button:active,
+    .player-button:hover {
+      all: unset;
+      display: inline-block;
+      border: none;
       cursor: pointer;
       color: white;
       background-color: transparent;
@@ -36,6 +42,8 @@
       height: 30px;
       width: 30px;
       margin: 8px 4px 7px 3px;
+      line-height: 30px;
+      text-align: center;
     }
     .viewing-container {
       display: flex;
@@ -76,6 +84,9 @@
       transition-duration: 300ms;
       transition-timing-function: ease-in;
     }
+    [hidden] {
+      display: none !important;
+    }
   </style>
 </head>
 
@@ -104,12 +115,10 @@
       <div class="viewing-container">
         <span class="js-current-time"></span>
         <div class="video-container">
-
           <div class="js-progress progress">
             <div class="js-progress-slider progress-slider"></div>
             <div class="slider"></div>
           </div>
-
         </div>
         <span class="js-duration"></span>
       </div>
