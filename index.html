@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
   <style>
     .container {
@@ -13,7 +15,7 @@
       width: 800px;
       height: 600px;
       background: black;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+      box-shadow: 0 0 22px rgba(0, 0, 0, 1);
     }
     .video-container {
       flex-grow: 1;
@@ -23,16 +25,67 @@
       flex-direction: row;
       justify-content: flex-start;
       background-color: black;
+      color: white;
+      font-family: Roboto;
     }
-    .player-button {
-      border-style: none;
+    .player-button,
+    .player-button:focus,
+    .player-button:active,
+    .player-button:hover {
+      all: unset;
+      display: inline-block;
+      border: none;
       cursor: pointer;
       color: white;
       background-color: transparent;
-      font-size: large;
+      font-size: 20px;
       height: 30px;
       width: 30px;
-      margin: 5px;
+      margin: 8px 4px 7px 3px;
+      line-height: 30px;
+      text-align: center;
+    }
+    .viewing-container {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+      align-items: center;
+      margin: 1px 0px 0px 1px;
+    }
+    .progress {
+      display: flex;
+      flex-direction: row;
+      background-color: black;
+      margin: 0px 0px 0px 10px;
+    }
+    .progress-slider {
+      background-color: red;
+      border-radius: 2px;
+      height: 5px;
+      margin: 6px 0px 0px 0px;
+    }
+    .slider {
+      opacity: 0;
+      transition-property: opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease-out;
+      background-color: red;
+      border-style: solid;
+      border-color: white;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      height: 8px;
+      width: 8px;
+      margin: 2px 0px 0px -7px;
+    }
+    .player-button-container:hover .slider {
+      opacity: 1;
+      transition-property: opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease-in;
+    }
+    [hidden] {
+      display: none !important;
     }
   </style>
 </head>
@@ -59,7 +112,16 @@
           <i class="fa fa-volume-up" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="video-container"></div>
+      <div class="viewing-container">
+        <span class="js-current-time"></span>
+        <div class="video-container">
+          <div class="js-progress progress">
+            <div class="js-progress-slider progress-slider"></div>
+            <div class="slider"></div>
+          </div>
+        </div>
+        <span class="js-duration"></span>
+      </div>
       <button class="js-fullscreen-button player-button">
         <i class="fa fa-expand" aria-hidden="true"></i>
       </button>
