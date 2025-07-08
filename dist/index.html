@@ -57,6 +57,10 @@
       margin: 6px 0px 0px 0px;
     }
     .slider {
+      opacity: 0;
+      transition-property: opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease-out;
       background-color: red;
       border-style: solid;
       border-color: white;
@@ -65,6 +69,12 @@
       height: 8px;
       width: 8px;
       margin: 2px 0px 0px -7px;
+    }
+    .player-button-container:hover .slider {
+      opacity: 1;
+      transition-property: opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease-in;
     }
   </style>
 </head>
