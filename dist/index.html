@@ -14,7 +14,7 @@
       width: 800px;
       height: 600px;
       background: black;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+      box-shadow: 0 0 22px rgba(0, 0, 0, 1);
     }
     .video-container {
       flex-grow: 1;
@@ -44,6 +44,28 @@
       align-items: center;
       margin: 1px 0px 0px 1px;
     }
+    .progress {
+      display: flex;
+      flex-direction: row;
+      background-color: black;
+      margin: 0px 0px 0px 10px;
+    }
+    .progress-slider {
+      background-color: red;
+      border-radius: 2px;
+      height: 5px;
+      margin: 6px 0px 0px 0px;
+    }
+    .slider {
+      background-color: red;
+      border-style: solid;
+      border-color: white;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      height: 8px;
+      width: 8px;
+      margin: 2px 0px 0px -7px;
+    }
   </style>
 </head>
 
@@ -69,13 +91,18 @@
           <i class="fa fa-volume-up" aria-hidden="true"></i>
         </button>
       </div>
-
       <div class="viewing-container">
         <span class="js-current-time"></span>
-        <div class="video-container"></div>
+        <div class="video-container">
+
+          <div class="js-progress progress">
+            <div class="js-progress-slider progress-slider"></div>
+            <div class="slider"></div>
+          </div>
+
+        </div>
         <span class="js-duration"></span>
       </div>
-
       <button class="js-fullscreen-button player-button">
         <i class="fa fa-expand" aria-hidden="true"></i>
       </button>
